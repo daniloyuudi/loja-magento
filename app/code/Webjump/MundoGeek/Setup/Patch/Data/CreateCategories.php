@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Webjump\Loja\Setup\Patch\Data;
+namespace Webjump\MundoGeek\Setup\Patch\Data;
 
 use Magento\Catalog\Helper\DefaultCategory;
 use Magento\Catalog\Model\CategoryFactory;
@@ -83,9 +83,6 @@ class CreateCategories implements DataPatchInterface
     public function apply(): void
     {
         $this->setup->startSetup();
-        $this->createCategories($this->categoryBlusas());
-        $this->createCategories($this->categoryCamisetas());
-        $this->createCategories($this->categoryVestidos());
         $this->createCategories($this->categoryCanecas());
         $this->createCategories($this->categoryBonecos());
         $this->createCategories($this->categoryAlmofadas());
