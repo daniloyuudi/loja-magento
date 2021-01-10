@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Webjump\Loja\Setup\Patch\Data;
+namespace Webjump\Clofem\Setup\Patch\Data;
 
 use Magento\Catalog\Helper\DefaultCategory;
 use Magento\Catalog\Model\CategoryFactory;
