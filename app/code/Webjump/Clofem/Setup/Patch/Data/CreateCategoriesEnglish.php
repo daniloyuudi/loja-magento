@@ -22,7 +22,7 @@ use Magento\Store\Model\StoreManager;
  *
  * @package Webjump\CategoriesAndSubcategories\Setup\Patch\Data
  */
-class CreateCategories implements DataPatchInterface
+class CreateCategoriesEnglish implements DataPatchInterface
 {
 
     /**
@@ -83,12 +83,9 @@ class CreateCategories implements DataPatchInterface
     public function apply(): void
     {
         $this->setup->startSetup();
-        $this->createCategories($this->categoryCanecas());
-        $this->createCategories($this->categoryBonecos());
-        $this->createCategories($this->categoryAlmofadas());
-        $this->createCategories($this->categoryCarros());
-        $this->createCategories($this->categoryFunkos());
-        $this->createCategories($this->categoryQuadros());
+        $this->createCategories($this->categoryBlusas());
+        $this->createCategories($this->categoryCamisetas());
+        $this->createCategories($this->categoryVestidos());
         //$this->createCategories($this->subcategoriesOfDrCuidado());
         $this->setup->endSetup();
     }
@@ -105,17 +102,17 @@ class CreateCategories implements DataPatchInterface
             $category = $this->categoryFactory->create();
             $category
                 ->setData($item)
-                ->setStoreId("1")
+                ->setStoreId(3)
                 ->setAttributeSetId($category->getDefaultAttributeSetId());
             $this->categoryRepository->save($category);
         }
     }
 
     /**
-     * Method for create category Canecas
+     * Method for create category Blusas
      * @return array
      */
-    private function categoryCanecas(): array
+    private function categoryBlusas(): array
     {
         $parentId = $this->defaultCategoryHelper->getId();
         $parentCategory = $this->categoryFactory->create();
@@ -123,8 +120,8 @@ class CreateCategories implements DataPatchInterface
         $categories = [];
 
         $categories[] = [
-            'name' => 'Canecas',
-            'url_key' => 'canecas',
+            'name' => 'Blouses',
+            'url_key' => 'blusas',
             'is_active' => true,
             'is_anchor' => true,
             'include_in_menu' => true,
@@ -136,10 +133,10 @@ class CreateCategories implements DataPatchInterface
     }
 
     /**
-     * Method for create category Bonecos
+     * Method for create category Camisetas
      * @return array
      */
-    private function categoryBonecos(): array
+    private function categoryCamisetas(): array
     {
         $parentId = $this->defaultCategoryHelper->getId();
         $parentCategory = $this->categoryFactory->create();
@@ -147,8 +144,8 @@ class CreateCategories implements DataPatchInterface
         $categories = [];
 
         $categories[] = [
-            'name' => 'Bonecos',
-            'url_key' => 'bonecos',
+            'name' => 'T-Shirts',
+            'url_key' => 'camisetas',
             'is_active' => true,
             'is_anchor' => true,
             'include_in_menu' => true,
@@ -160,10 +157,10 @@ class CreateCategories implements DataPatchInterface
     }
 
     /**
-     * Method for create category Almofadas
+     * Method for create category Vestidos
      * @return array
      */
-    private function categoryAlmofadas(): array
+    private function categoryVestidos(): array
     {
         $parentId = $this->defaultCategoryHelper->getId();
         $parentCategory = $this->categoryFactory->create();
@@ -171,8 +168,8 @@ class CreateCategories implements DataPatchInterface
         $categories = [];
 
         $categories[] = [
-            'name' => 'Almofadas',
-            'url_key' => 'almofadas',
+            'name' => 'Dresses',
+            'url_key' => 'vestidos',
             'is_active' => true,
             'is_anchor' => true,
             'include_in_menu' => true,
@@ -182,79 +179,6 @@ class CreateCategories implements DataPatchInterface
 
         return $categories;
     }
-
-    /**
-     * Method for create category Carros
-     * @return array
-     */
-    private function categoryCarros(): array
-    {
-        $parentId = $this->defaultCategoryHelper->getId();
-        $parentCategory = $this->categoryFactory->create();
-        $parentCategory = $parentCategory->load($parentId);
-        $categories = [];
-
-        $categories[] = [
-            'name' => 'Carros',
-            'url_key' => 'carros',
-            'is_active' => false,
-            'is_anchor' => false,
-            'include_in_menu' => false,
-            'display_mode' => 'PRODUCTS_AND_PAGE',
-            'parent_id' => $parentCategory->getId()
-        ];
-
-        return $categories;
-    }
-
-    /**
-     * Method for create category Almofadas
-     * @return array
-     */
-    private function categoryFunkos(): array
-    {
-        $parentId = $this->defaultCategoryHelper->getId();
-        $parentCategory = $this->categoryFactory->create();
-        $parentCategory = $parentCategory->load($parentId);
-        $categories = [];
-
-        $categories[] = [
-            'name' => 'Funkos',
-            'url_key' => 'funkos',
-            'is_active' => true,
-            'is_anchor' => true,
-            'include_in_menu' => true,
-            'display_mode' => 'PRODUCTS_AND_PAGE',
-            'parent_id' => $parentCategory->getId()
-        ];
-
-        return $categories;
-    }
-
-    /**
-     * Method for create category Almofadas
-     * @return array
-     */
-    private function categoryQuadros(): array
-    {
-        $parentId = $this->defaultCategoryHelper->getId();
-        $parentCategory = $this->categoryFactory->create();
-        $parentCategory = $parentCategory->load($parentId);
-        $categories = [];
-
-        $categories[] = [
-            'name' => 'Quadros',
-            'url_key' => 'quadros',
-            'is_active' => true,
-            'is_anchor' => true,
-            'include_in_menu' => true,
-            'display_mode' => 'PRODUCTS_AND_PAGE',
-            'parent_id' => $parentCategory->getId()
-        ];
-
-        return $categories;
-    }
-
 
     /**
      * Method for create subcategorie Dr. Cuidado

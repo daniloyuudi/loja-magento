@@ -8,7 +8,7 @@ return [
                 'name' => 'Admin',
                 'sort_order' => '0',
                 'default_group_id' => '0',
-                'is_default' => '0',
+                'is_default' => '0'
             ],
             'website_1' => [
                 'website_id' => '1',
@@ -16,7 +16,7 @@ return [
                 'name' => 'Website 1',
                 'sort_order' => '0',
                 'default_group_id' => '1',
-                'is_default' => '1',
+                'is_default' => '1'
             ],
             'website_2' => [
                 'website_id' => '2',
@@ -24,42 +24,42 @@ return [
                 'name' => 'Website 2',
                 'sort_order' => '1',
                 'default_group_id' => '2',
-                'is_default' => '0',
-            ],
+                'is_default' => '0'
+            ]
         ],
         'groups' => [
-            0 => [
+            [
                 'group_id' => '0',
                 'website_id' => '0',
                 'name' => 'Default',
                 'root_category_id' => '0',
                 'default_store_id' => '0',
-                'code' => 'default',
+                'code' => 'default'
             ],
-            1 => [
+            [
                 'group_id' => '1',
                 'website_id' => '1',
                 'name' => 'Store 1',
                 'root_category_id' => '2',
                 'default_store_id' => '1',
-                'code' => 'store_1',
+                'code' => 'store_1'
             ],
-            2 => [
+            [
                 'group_id' => '2',
                 'website_id' => '2',
                 'name' => 'Português',
                 'root_category_id' => '2',
                 'default_store_id' => '2',
-                'code' => 'store_2',
+                'code' => 'store_2'
             ],
-            3 => [
+            [
                 'group_id' => '3',
                 'website_id' => '2',
                 'name' => 'English',
                 'root_category_id' => '2',
                 'default_store_id' => '3',
-                'code' => 'store_3',
-            ],
+                'code' => 'store_3'
+            ]
         ],
         'stores' => [
             'admin' => [
@@ -69,7 +69,7 @@ return [
                 'group_id' => '0',
                 'name' => 'Admin',
                 'sort_order' => '0',
-                'is_active' => '1',
+                'is_active' => '1'
             ],
             'store_view_1' => [
                 'store_id' => '1',
@@ -78,7 +78,7 @@ return [
                 'group_id' => '1',
                 'name' => 'Store View 1',
                 'sort_order' => '0',
-                'is_active' => '1',
+                'is_active' => '1'
             ],
             'pt' => [
                 'store_id' => '2',
@@ -87,7 +87,7 @@ return [
                 'group_id' => '2',
                 'name' => 'Store View 2',
                 'sort_order' => '1',
-                'is_active' => '1',
+                'is_active' => '1'
             ],
             'en' => [
                 'store_id' => '3',
@@ -96,9 +96,9 @@ return [
                 'group_id' => '3',
                 'name' => 'Store View 3',
                 'sort_order' => '2',
-                'is_active' => '1',
-            ],
-        ],
+                'is_active' => '1'
+            ]
+        ]
     ],
     'modules' => [
         'Magento_AdminAnalytics' => 1,
@@ -418,7 +418,7 @@ return [
         'Vertex_AddressValidation' => 1,
         'Webjump_Clofem' => 1,
         'Webjump_MundoGeek' => 1,
-        'Yotpo_Yotpo' => 1,
+        'Yotpo_Yotpo' => 1
     ],
     'themes' => [
         'frontend/Magento/blank' => [
@@ -428,7 +428,7 @@ return [
             'is_featured' => '0',
             'area' => 'frontend',
             'type' => '0',
-            'code' => 'Magento/blank',
+            'code' => 'Magento/blank'
         ],
         'adminhtml/Magento/backend' => [
             'parent_id' => null,
@@ -437,7 +437,7 @@ return [
             'is_featured' => '0',
             'area' => 'adminhtml',
             'type' => '0',
-            'code' => 'Magento/backend',
+            'code' => 'Magento/backend'
         ],
         'frontend/Magento/luma' => [
             'parent_id' => 'Magento/blank',
@@ -446,7 +446,7 @@ return [
             'is_featured' => '0',
             'area' => 'frontend',
             'type' => '0',
-            'code' => 'Magento/luma',
-        ],
+            'code' => 'Magento/luma'
+        ]
     ]
 ];

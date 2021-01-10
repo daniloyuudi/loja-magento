@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Webjump\Clofem\Setup\Patch\Data;
+namespace Webjump\MundoGeek\Setup\Patch\Data;
 
 use Magento\Catalog\Helper\DefaultCategory;
 use Magento\Catalog\Model\CategoryFactory;
@@ -22,7 +22,7 @@ use Magento\Store\Model\StoreManager;
  *
  * @package Webjump\CategoriesAndSubcategories\Setup\Patch\Data
  */
-class CreateCategories implements DataPatchInterface
+class CreateCategoriesPortuguese implements DataPatchInterface
 {
 
     /**
@@ -102,6 +102,7 @@ class CreateCategories implements DataPatchInterface
             $category = $this->categoryFactory->create();
             $category
                 ->setData($item)
+                ->setStoreId(2)
                 ->setAttributeSetId($category->getDefaultAttributeSetId());
             $this->categoryRepository->save($category);
         }
@@ -131,7 +132,7 @@ class CreateCategories implements DataPatchInterface
         return $categories;
     }
 
-        /**
+    /**
      * Method for create category Camisetas
      * @return array
      */
@@ -178,151 +179,6 @@ class CreateCategories implements DataPatchInterface
 
         return $categories;
     }
-
-    /**
-     * Method for create category Canecas
-     * @return array
-     */
-    private function categoryCanecas(): array
-    {
-        $parentId = $this->defaultCategoryHelper->getId();
-        $parentCategory = $this->categoryFactory->create();
-        $parentCategory = $parentCategory->load($parentId);
-        $categories = [];
-
-        $categories[] = [
-            'name' => 'Canecas',
-            'url_key' => 'canecas',
-            'is_active' => true,
-            'is_anchor' => true,
-            'include_in_menu' => true,
-            'display_mode' => 'PRODUCTS_AND_PAGE',
-            'parent_id' => $parentCategory->getId()
-        ];
-
-        return $categories;
-    }
-
-    /**
-     * Method for create category Bonecos
-     * @return array
-     */
-    private function categoryBonecos(): array
-    {
-        $parentId = $this->defaultCategoryHelper->getId();
-        $parentCategory = $this->categoryFactory->create();
-        $parentCategory = $parentCategory->load($parentId);
-        $categories = [];
-
-        $categories[] = [
-            'name' => 'Bonecos',
-            'url_key' => 'bonecos',
-            'is_active' => true,
-            'is_anchor' => true,
-            'include_in_menu' => true,
-            'display_mode' => 'PRODUCTS_AND_PAGE',
-            'parent_id' => $parentCategory->getId()
-        ];
-
-        return $categories;
-    }
-
-    /**
-     * Method for create category Almofadas
-     * @return array
-     */
-    private function categoryAlmofadas(): array
-    {
-        $parentId = $this->defaultCategoryHelper->getId();
-        $parentCategory = $this->categoryFactory->create();
-        $parentCategory = $parentCategory->load($parentId);
-        $categories = [];
-
-        $categories[] = [
-            'name' => 'Almofadas',
-            'url_key' => 'almofadas',
-            'is_active' => true,
-            'is_anchor' => true,
-            'include_in_menu' => true,
-            'display_mode' => 'PRODUCTS_AND_PAGE',
-            'parent_id' => $parentCategory->getId()
-        ];
-
-        return $categories;
-    }
-
-    /**
-     * Method for create category Carros
-     * @return array
-     */
-    private function categoryCarros(): array
-    {
-        $parentId = $this->defaultCategoryHelper->getId();
-        $parentCategory = $this->categoryFactory->create();
-        $parentCategory = $parentCategory->load($parentId);
-        $categories = [];
-
-        $categories[] = [
-            'name' => 'Carros',
-            'url_key' => 'carros',
-            'is_active' => true,
-            'is_anchor' => true,
-            'include_in_menu' => true,
-            'display_mode' => 'PRODUCTS_AND_PAGE',
-            'parent_id' => $parentCategory->getId()
-        ];
-
-        return $categories;
-    }
-
-    /**
-     * Method for create category Almofadas
-     * @return array
-     */
-    private function categoryFunkos(): array
-    {
-        $parentId = $this->defaultCategoryHelper->getId();
-        $parentCategory = $this->categoryFactory->create();
-        $parentCategory = $parentCategory->load($parentId);
-        $categories = [];
-
-        $categories[] = [
-            'name' => 'Funkos',
-            'url_key' => 'funkos',
-            'is_active' => true,
-            'is_anchor' => true,
-            'include_in_menu' => true,
-            'display_mode' => 'PRODUCTS_AND_PAGE',
-            'parent_id' => $parentCategory->getId()
-        ];
-
-        return $categories;
-    }
-
-    /**
-     * Method for create category Almofadas
-     * @return array
-     */
-    private function categoryQuadros(): array
-    {
-        $parentId = $this->defaultCategoryHelper->getId();
-        $parentCategory = $this->categoryFactory->create();
-        $parentCategory = $parentCategory->load($parentId);
-        $categories = [];
-
-        $categories[] = [
-            'name' => 'Quadros',
-            'url_key' => 'quadros',
-            'is_active' => true,
-            'is_anchor' => true,
-            'include_in_menu' => true,
-            'display_mode' => 'PRODUCTS_AND_PAGE',
-            'parent_id' => $parentCategory->getId()
-        ];
-
-        return $categories;
-    }
-
 
     /**
      * Method for create subcategorie Dr. Cuidado
