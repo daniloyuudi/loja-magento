@@ -76,8 +76,8 @@ location ~* ^/update($|/) {
         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
         fastcgi_param  PATH_INFO        $fastcgi_path_info;
 	# START - Multisite customization
-	fastcgi_param  MAGE_RUN_TYPE $MAGE_RUN_TYPE;
-	fastcgi_param  MAGE_RUN_CODE $MAGE_RUN_CODE;
+	#fastcgi_param  MAGE_RUN_TYPE $MAGE_RUN_TYPE;
+	#fastcgi_param  MAGE_RUN_CODE $MAGE_RUN_CODE;
 	# END - Multisite customization
         include        fastcgi_params;
     }
