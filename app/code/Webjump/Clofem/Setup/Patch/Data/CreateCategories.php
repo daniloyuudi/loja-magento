@@ -22,7 +22,7 @@ use Magento\Store\Model\StoreManager;
  *
  * @package Webjump\CategoriesAndSubcategories\Setup\Patch\Data
  */
-class CreateCategoriesEnglish implements DataPatchInterface
+class CreateCategories implements DataPatchInterface
 {
 
     /**
@@ -86,6 +86,9 @@ class CreateCategoriesEnglish implements DataPatchInterface
         $this->createCategories($this->categoryBlusas());
         $this->createCategories($this->categoryCamisetas());
         $this->createCategories($this->categoryVestidos());
+        $this->createCategories($this->categoryBlouses());
+        $this->createCategories($this->categoryTShirts());
+        $this->createCategories($this->categoryDresses());
         //$this->createCategories($this->subcategoriesOfDrCuidado());
         $this->setup->endSetup();
     }
@@ -119,6 +122,78 @@ class CreateCategoriesEnglish implements DataPatchInterface
         $categories = [];
 
         $categories[] = [
+            'name' => 'Blusas',
+            'url_key' => 'blusas',
+            'is_active' => true,
+            'is_anchor' => true,
+            'include_in_menu' => true,
+            'display_mode' => 'PRODUCTS_AND_PAGE',
+            'parent_id' => $parentCategory->getId()
+        ];
+
+        return $categories;
+    }
+
+    /**
+     * Method for create category Camisetas
+     * @return array
+     */
+    private function categoryCamisetas(): array
+    {
+        $parentId = $this->defaultCategoryHelper->getId();
+        $parentCategory = $this->categoryFactory->create();
+        $parentCategory = $parentCategory->load($parentId);
+        $categories = [];
+
+        $categories[] = [
+            'name' => 'Camisetas',
+            'url_key' => 'camisetas',
+            'is_active' => true,
+            'is_anchor' => true,
+            'include_in_menu' => true,
+            'display_mode' => 'PRODUCTS_AND_PAGE',
+            'parent_id' => $parentCategory->getId()
+        ];
+
+        return $categories;
+    }
+
+    /**
+     * Method for create category Vestidos
+     * @return array
+     */
+    private function categoryVestidos(): array
+    {
+        $parentId = $this->defaultCategoryHelper->getId();
+        $parentCategory = $this->categoryFactory->create();
+        $parentCategory = $parentCategory->load($parentId);
+        $categories = [];
+
+        $categories[] = [
+            'name' => 'Vestidos',
+            'url_key' => 'vestidos',
+            'is_active' => true,
+            'is_anchor' => true,
+            'include_in_menu' => true,
+            'display_mode' => 'PRODUCTS_AND_PAGE',
+            'parent_id' => $parentCategory->getId()
+        ];
+
+        return $categories;
+    }
+
+    /**
+     * Method for create category Blusas
+     * @return array
+     */
+    private function categoryBlouses(): array
+    {
+        $parentId = $this->defaultCategoryHelper->getId();
+        $parentCategory = $this->categoryFactory->create();
+        $parentCategory = $parentCategory->load($parentId);
+        $categories = [];
+
+        $categories[] = [
             'name' => 'Blouses',
             'url_key' => 'blouses',
             'is_active' => true,
@@ -135,7 +210,7 @@ class CreateCategoriesEnglish implements DataPatchInterface
      * Method for create category Camisetas
      * @return array
      */
-    private function categoryCamisetas(): array
+    private function categoryTShirts(): array
     {
         $parentId = $this->defaultCategoryHelper->getId();
         $parentCategory = $this->categoryFactory->create();
@@ -159,7 +234,7 @@ class CreateCategoriesEnglish implements DataPatchInterface
      * Method for create category Vestidos
      * @return array
      */
-    private function categoryVestidos(): array
+    private function categoryDresses(): array
     {
         $parentId = $this->defaultCategoryHelper->getId();
         $parentCategory = $this->categoryFactory->create();
