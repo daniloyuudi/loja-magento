@@ -105,7 +105,6 @@ class CreateCategories implements DataPatchInterface
             $category = $this->categoryFactory->create();
             $category
                 ->setData($item)
-                ->setStoreId("1")
                 ->setAttributeSetId($category->getDefaultAttributeSetId());
             $this->categoryRepository->save($category);
         }
@@ -197,9 +196,9 @@ class CreateCategories implements DataPatchInterface
         $categories[] = [
             'name' => 'Carros',
             'url_key' => 'carros',
-            'is_active' => false,
-            'is_anchor' => false,
-            'include_in_menu' => false,
+            'is_active' => true,
+            'is_anchor' => true,
+            'include_in_menu' => true,
             'display_mode' => 'PRODUCTS_AND_PAGE',
             'parent_id' => $parentCategory->getId()
         ];

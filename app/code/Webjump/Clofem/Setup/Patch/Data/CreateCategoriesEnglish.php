@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Webjump\MundoGeek\Setup\Patch\Data;
+namespace Webjump\Clofem\Setup\Patch\Data;
 
 use Magento\Catalog\Helper\DefaultCategory;
 use Magento\Catalog\Model\CategoryFactory;
@@ -102,7 +102,6 @@ class CreateCategoriesEnglish implements DataPatchInterface
             $category = $this->categoryFactory->create();
             $category
                 ->setData($item)
-                ->setStoreId(3)
                 ->setAttributeSetId($category->getDefaultAttributeSetId());
             $this->categoryRepository->save($category);
         }
@@ -121,7 +120,7 @@ class CreateCategoriesEnglish implements DataPatchInterface
 
         $categories[] = [
             'name' => 'Blouses',
-            'url_key' => 'blusas',
+            'url_key' => 'blouses',
             'is_active' => true,
             'is_anchor' => true,
             'include_in_menu' => true,
@@ -145,7 +144,7 @@ class CreateCategoriesEnglish implements DataPatchInterface
 
         $categories[] = [
             'name' => 'T-Shirts',
-            'url_key' => 'camisetas',
+            'url_key' => 'tshirts',
             'is_active' => true,
             'is_anchor' => true,
             'include_in_menu' => true,
@@ -169,7 +168,7 @@ class CreateCategoriesEnglish implements DataPatchInterface
 
         $categories[] = [
             'name' => 'Dresses',
-            'url_key' => 'vestidos',
+            'url_key' => 'dresses',
             'is_active' => true,
             'is_anchor' => true,
             'include_in_menu' => true,

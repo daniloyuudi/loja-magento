@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Webjump\MundoGeek\Setup\Patch\Data;
+namespace Webjump\Clofem\Setup\Patch\Data;
 
 use Magento\Catalog\Helper\DefaultCategory;
 use Magento\Catalog\Model\CategoryFactory;
@@ -102,7 +102,6 @@ class CreateCategoriesPortuguese implements DataPatchInterface
             $category = $this->categoryFactory->create();
             $category
                 ->setData($item)
-                ->setStoreId(2)
                 ->setAttributeSetId($category->getDefaultAttributeSetId());
             $this->categoryRepository->save($category);
         }
