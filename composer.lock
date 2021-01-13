@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a5f1d2cc9952af1b316eb43ec3ac985",
+    "content-hash": "e9a8bbf3ad9474ba28ff214bb085d7ea",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -461,6 +461,39 @@
             ],
             "description": "Braintree PHP Client Library",
             "time": "2020-06-15T19:02:23+00:00"
+        },
+        {
+            "name": "buzzmage/centraldofrete-magento",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/buzzmage/centraldofrete-magento.git",
+                "reference": "2dbbc7b2e911d4c8c96af0fa597c89116b06824b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/buzzmage/centraldofrete-magento/zipball/2dbbc7b2e911d4c8c96af0fa597c89116b06824b",
+                "reference": "2dbbc7b2e911d4c8c96af0fa597c89116b06824b",
+                "shasum": ""
+            },
+            "type": "module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Buzz\\CentralDoFrete\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Buzz e-Commerce",
+                    "email": "contato@sitedabuzz.com.br"
+                }
+            ],
+            "description": "Módulo de cotações de frete para Magento 2 da Central do Frete.",
+            "time": "2020-09-17T12:54:17+00:00"
         },
         {
             "name": "christian-riesen/base32",
@@ -2906,12 +2939,6 @@
                 "http client",
                 "laminas"
             ],
-            "funding": [
-                {
-                    "url": "https://funding.communitybridge.org/projects/laminas-project",
-                    "type": "community_bridge"
-                }
-            ],
             "time": "2021-01-05T16:10:52+00:00"
         },
         {
@@ -4178,12 +4205,6 @@
             "keywords": [
                 "laminas",
                 "validator"
-            ],
-            "funding": [
-                {
-                    "url": "https://funding.communitybridge.org/projects/laminas-project",
-                    "type": "community_bridge"
-                }
             ],
             "time": "2021-01-06T15:05:04+00:00"
         },
@@ -24285,12 +24306,12 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "buzzmage/centraldofrete-magento": 20,
         "magento2translations/language_pt_br": 20,
         "mageplaza/magento-2-portuguese-language-pack": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
