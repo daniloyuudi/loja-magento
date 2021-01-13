@@ -75,10 +75,13 @@ location ~* ^/update($|/) {
         fastcgi_index  index.php;
         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
         fastcgi_param  PATH_INFO        $fastcgi_path_info;
+<<<<<<< HEAD
 	# START - Multisite customization
 	#fastcgi_param  MAGE_RUN_TYPE $MAGE_RUN_TYPE;
 	#fastcgi_param  MAGE_RUN_CODE $MAGE_RUN_CODE;
 	# END - Multisite customization
+=======
+>>>>>>> b941cd6673885bb02166a4b653c61c1a5369d095
         include        fastcgi_params;
     }
 
@@ -195,6 +198,10 @@ location ~ ^/(index|get|static|errors/report|errors/404|errors/503|health_check)
 
     fastcgi_index  index.php;
     fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+    # START - Multisite customization
+    fastcgi_param  MAGE_RUN_TYPE $MAGE_RUN_TYPE;
+    fastcgi_param  MAGE_RUN_CODE $MAGE_RUN_CODE;
+    # END - Multisite customization
     include        fastcgi_params;
 }
 
