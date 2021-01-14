@@ -13,6 +13,7 @@
     "version": "2.4.1",
     "require": {
         "avada/module-proofo": "^1.0",
+        "buzzmage/centraldofrete-magento": "dev-master",
         "magento/composer-root-update-plugin": "~1.0",
         "magento/product-community-edition": "2.4.1",
         "magento2translations/language_pt_br": "dev-master",

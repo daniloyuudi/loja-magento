@@ -402,6 +402,7 @@ return [
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
         'Avada_Proofo' => 1,
+        'Buzz_CentralDoFrete' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
         'Klarna_Core' => 1,
@@ -415,7 +416,10 @@ return [
         'Temando_ShippingRemover' => 1,
         'Vertex_Tax' => 1,
         'Vertex_AddressValidationApi' => 1,
-        'Vertex_AddressValidation' => 1,
+        'Vertex_AddressValidation' => 1, 
+
+        'Webjump_Clofem' => 0,
+        'Webjump_MundoGeek' => 0,
         'Yotpo_Yotpo' => 1
     ],
     'themes' => [
