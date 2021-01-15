@@ -402,7 +402,6 @@ return [
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
         'Avada_Proofo' => 1,
-        'Buzz_CentralDoFrete' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
         'ImaginationMedia_Correios' => 1,
