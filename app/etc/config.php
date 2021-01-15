@@ -402,7 +402,6 @@ return [
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
         'Avada_Proofo' => 1,
-        'Buzz_CentralDoFrete' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
         'ImaginationMedia_Correios' => 1,
@@ -418,8 +417,6 @@ return [
         'Vertex_Tax' => 1,
         'Vertex_AddressValidationApi' => 1,
         'Vertex_AddressValidation' => 1,
-        'Webjump_Clofem' => 0,
-        'Webjump_MundoGeek' => 0,
         'Yotpo_Yotpo' => 1
     ],
     'themes' => [
