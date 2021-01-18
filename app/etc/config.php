@@ -416,6 +416,8 @@ return [
         'Vertex_Tax' => 1,
         'Vertex_AddressValidationApi' => 1,
         'Vertex_AddressValidation' => 1,
+        'Webjump_Clofem' => 1,
+        'Webjump_MundoGeek' => 1,
         'Yotpo_Yotpo' => 1
     ],
     'themes' => [
