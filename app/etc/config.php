@@ -402,6 +402,7 @@ return [
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
         'Avada_Proofo' => 1,
+        'Clofem_Attributes' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
         'Klarna_Core' => 1,
@@ -410,12 +411,15 @@ return [
         'Klarna_Onsitemessaging' => 1,
         'Klarna_KpGraphQl' => 1,
         'Mageplaza_Core' => 1,
+        'MundoGeek_Attributes' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
         'Temando_ShippingRemover' => 1,
         'Vertex_Tax' => 1,
         'Vertex_AddressValidationApi' => 1,
         'Vertex_AddressValidation' => 1,
+        'Webjump_Clofem' => 1,
+        'Webjump_MundoGeek' => 1,
         'Yotpo_Yotpo' => 1
     ],
     'themes' => [
