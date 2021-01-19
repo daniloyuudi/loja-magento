@@ -8,6 +8,14 @@ O conteúdo é composto por 2 websites, sendo que um deles possui duas storeview
 ## As duas lojas
 - A loja que possui 2 storeviews, uma para cada idioma, é a Clofem, loja de roupas femininas;
 - A segunda loja é a Mundo Geek, que possui itens colecionáveis do universo geek.
+
+## Últimas atualizações
+- Cada loja agora possui dois atributos e os arquivos para a criação dos mesmos se localiza em app/code/<nome da loja>/Attributes/Setup/Data/Patch;
+- Módulo de frete adicionado;
+- Novos banners;
+- Tema baseado no Luma;
+- Logo;
+    
 ## Informações
 - Versão do Magento: 2.4.1;
 - Versão do Composer: 1.9;
