@@ -23,7 +23,7 @@ use Magento\Swatches\Model\Plugin\EavAttribute;
 class CreateAttribute implements DataPatchInterface, PatchRevertableInterface
 {
     const ATTRIBUTE_CODE = 'product_type';
-    const ATTRIBUTE_ITEM = 'clofem_item';
+    const ATTRIBUTE_ITEM = 'geek_item';
 
     /**
      * @var ModuleDataSetupInterface
@@ -71,8 +71,9 @@ class CreateAttribute implements DataPatchInterface, PatchRevertableInterface
         $this->moduleDataSetup->getConnection()->startSetup();
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
         $productTypes = [
-            Type::TYPE_SIMPLE
-        ];
+            Type::TYPE_SIMPLE,
+            Type::TYPE_VIRTUAL,
+            Type::TYPE_BUNDLE];
         $productTypes = join(',', $productTypes);
         $eavSetup->addAttribute(
             Product::ENTITY,
@@ -86,24 +87,23 @@ class CreateAttribute implements DataPatchInterface, PatchRevertableInterface
                 'required' => false,
                 'backend' => '',
                 'sort_order' => '80',
-                'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+                'global' => ScopedAttributeInterface::SCOPE_WEBSITE,
                 'default' => null,
                 'visible' => true,
                 'user_defined' => true,
-                'searchable' => false,
-                'filterable' => false,
+                'searchable' => true,
+                'filterable' => true,
                 'comparable' => false,
                 'visible_on_front' => true,
                 'unique' => false,
                 'apply_to' => $productTypes,
                 'group' => 'General',
-                'used_in_product_listing' => false,
+                'used_in_product_listing' => true,
                 'is_used_in_grid' => true,
-                'is_visible_in_grid' => false,
-                'is_filterable_in_grid' => false,
+                'is_visible_in_grid' => true,
+                'is_filterable_in_grid' => true,
                 'attribute_code'  => 'color',
                 'option' => [
-                    'option' => [
                         'value' => [
                             'option_1' => ['Yellow'],
                             'option_2' => ['Blue'],
@@ -114,12 +114,10 @@ class CreateAttribute implements DataPatchInterface, PatchRevertableInterface
                             'option_7' => ['Green'],
                             'option_8' => ['Red'],
                             'option_9' => ['Flowery'] ]
-                    ]
 
                 ]
             ]
         );
-
 
         $eavSetup->addAttribute(
             Product::ENTITY,
@@ -150,22 +148,25 @@ class CreateAttribute implements DataPatchInterface, PatchRevertableInterface
                 'is_filterable_in_grid' => false,
                 'attribute_code'  => 'fabric',
                 'option' => [
-                    'values' => ["Silk"],
-                    ["Cotton"],
-                    ["Linen"],
-                    ["Hemp"],
-                    ["Polyester"]
+                    'value' => [
+                        'option_1' => ['Silk'],
+                        'option_2' => ['Cotton'],
+                        'option_3' => ['Linen'],
+                        'option_4' => ['Hemp'],
+                        'option_5' => ['Polyester']
+                    ]
                 ]
             ]
         );
-
-
 
         $this->moduleDataSetup->getConnection()->endSetup();
     }
 
     public function revert()
     {
-        // TODO: Implement revert() method.
+        $this->moduleDataSetup->getConnection()->startSetup();
+        $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
+        $eavSetup->removeAttribute(Product::ENTITY, self::ATTRIBUTE_CODE);
+        $this->moduleDataSetup->getConnection()->endSetup();
     }
 }
