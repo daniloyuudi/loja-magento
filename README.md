@@ -19,7 +19,7 @@ O conteúdo é composto por 2 websites, sendo que um deles possui duas storeview
 - Finalizado em ---/20--
 
 ## Atualizações 18/01/2021
-- Cada loja agora possui dois atributos e os arquivos para a criação dos mesmos se localizam em app/code/<nome da loja>/Attributes/Setup/Data/Patch;
+- Cada loja agora possui dois atributos e os arquivos para a criação dos mesmos se localizam em app/code/nome da loja/Attributes/Setup/Data/Patch;
 - Módulo de frete adicionado;
 - Novos banners;
 - Tema baseado no Luma;
