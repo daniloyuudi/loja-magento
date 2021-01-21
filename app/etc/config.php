@@ -403,10 +403,10 @@ return [
         'Amazon_Payment' => 1,
         'Avada_Proofo' => 1,
         'Clofem_Attributes' => 1,
+        'Clofem_Banner' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
         'Frenet_Shipping' => 1,
-        'ImaginationMedia_Correios' => 0,
         'Klarna_Core' => 1,
         'Klarna_Ordermanagement' => 1,
         'Klarna_Kp' => 1,
@@ -414,8 +414,10 @@ return [
         'Klarna_KpGraphQl' => 1,
         'Mageplaza_Core' => 1,
         'MundoGeek_Attributes' => 1,
+        'MundoGeek_Banner' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
+        'RicardoMartins_PagSeguro' => 1,
         'Temando_ShippingRemover' => 1,
         'Vertex_Tax' => 1,
         'Vertex_AddressValidationApi' => 1,
@@ -471,13 +473,20 @@ return [
      * CONFIG__DEFAULT__CATALOG__SEARCH__ELASTICSEARCH7_SERVER_HOSTNAME for catalog/search/elasticsearch7_server_hostname
      * CONFIG__DEFAULT__CATALOG__PRODUCTALERT_CRON__ERROR_EMAIL for catalog/productalert_cron/error_email
      * CONFIG__DEFAULT__CATALOGINVENTORY__SOURCE_SELECTION_DISTANCE_BASED_GOOGLE__API_KEY for cataloginventory/source_selection_distance_based_google/api_key
+     * CONFIG__DEFAULT__PAYMENT__CHECKMO__MAILING_ADDRESS for payment/checkmo/mailing_address
      * CONFIG__DEFAULT__PAYMENT__PAYFLOWPRO__USER for payment/payflowpro/user
      * CONFIG__DEFAULT__PAYMENT__PAYFLOWPRO__PWD for payment/payflowpro/pwd
      * CONFIG__DEFAULT__PAYMENT__PAYFLOW_LINK__PWD for payment/payflow_link/pwd
      * CONFIG__DEFAULT__PAYMENT__PAYFLOW_ADVANCED__USER for payment/payflow_advanced/user
      * CONFIG__DEFAULT__PAYMENT__PAYFLOW_ADVANCED__PWD for payment/payflow_advanced/pwd
+     * CONFIG__DEFAULT__PAYMENT__AMAZON_PAYMENT__SECRET_KEY for payment/amazon_payment/secret_key
+     * CONFIG__DEFAULT__PAYMENT__AMAZON_PAYMENT__CLIENT_SECRET for payment/amazon_payment/client_secret
+     * CONFIG__DEFAULT__PAYMENT__AMAZON_PAYMENT__CREDENTIALS_JSON for payment/amazon_payment/credentials_json
      * CONFIG__DEFAULT__PAYMENT__BRAINTREE__PUBLIC_KEY for payment/braintree/public_key
      * CONFIG__DEFAULT__PAYMENT__BRAINTREE__PRIVATE_KEY for payment/braintree/private_key
+     * CONFIG__DEFAULT__PAYMENT__BRAINTREE__MERCHANT_ACCOUNT_ID for payment/braintree/merchant_account_id
+     * CONFIG__DEFAULT__PAYMENT__BRAINTREE_PAYPAL__MERCHANT_NAME_OVERRIDE for payment/braintree_paypal/merchant_name_override
+     * CONFIG__DEFAULT__PAYMENT__AMAZON_PAYMENTS__SIMPLEPATH__PRIVATEKEY for payment/amazon_payments/simplepath/privatekey
      * CONFIG__DEFAULT__CONTACT__EMAIL__RECIPIENT_EMAIL for contact/email/recipient_email
      * CONFIG__DEFAULT__CARRIERS__DHL__ACCOUNT for carriers/dhl/account
      * CONFIG__DEFAULT__CARRIERS__DHL__GATEWAY_URL for carriers/dhl/gateway_url
@@ -524,6 +533,10 @@ return [
      * CONFIG__DEFAULT__PAYPAL__WPP__API_USERNAME for paypal/wpp/api_username
      * CONFIG__DEFAULT__PAYPAL__FETCH_REPORTS__FTP_LOGIN for paypal/fetch_reports/ftp_login
      * CONFIG__DEFAULT__PAYPAL__FETCH_REPORTS__FTP_PASSWORD for paypal/fetch_reports/ftp_password
+     * CONFIG__DEFAULT__PAYPAL__FETCH_REPORTS__FTP_IP for paypal/fetch_reports/ftp_ip
+     * CONFIG__DEFAULT__PAYPAL__FETCH_REPORTS__FTP_PATH for paypal/fetch_reports/ftp_path
+     * CONFIG__DEFAULT__PAYPAL__GENERAL__MERCHANT_COUNTRY for paypal/general/merchant_country
+     * CONFIG__DEFAULT__PAYPAL__GENERAL__BUSINESS_ACCOUNT for paypal/general/business_account
      * CONFIG__DEFAULT__RECAPTCHA_BACKEND__TYPE_RECAPTCHA__PUBLIC_KEY for recaptcha_backend/type_recaptcha/public_key
      * CONFIG__DEFAULT__RECAPTCHA_BACKEND__TYPE_RECAPTCHA__PRIVATE_KEY for recaptcha_backend/type_recaptcha/private_key
      * CONFIG__DEFAULT__RECAPTCHA_BACKEND__TYPE_INVISIBLE__PUBLIC_KEY for recaptcha_backend/type_invisible/public_key
@@ -1353,6 +1366,7 @@ Disallow: /*SID=
                     'allowspecific' => '0',
                     'sort_order' => '1',
                     'group' => 'offline',
+                    'specificcountry' => null,
                 ],
                 'substitution' => [
                     'active' => '0',
@@ -1366,6 +1380,11 @@ Disallow: /*SID=
                     'title' => 'Check / Money order',
                     'allowspecific' => '0',
                     'group' => 'offline',
+                    'specificcountry' => null,
+                    'payable_to' => null,
+                    'min_order_total' => null,
+                    'max_order_total' => null,
+                    'sort_order' => null,
                 ],
                 'purchaseorder' => [
                     'active' => '0',
@@ -1374,6 +1393,10 @@ Disallow: /*SID=
                     'title' => 'Purchase Order',
                     'allowspecific' => '0',
                     'group' => 'offline',
+                    'specificcountry' => null,
+                    'min_order_total' => null,
+                    'max_order_total' => null,
+                    'sort_order' => null,
                 ],
                 'banktransfer' => [
                     'active' => '0',
@@ -1382,6 +1405,11 @@ Disallow: /*SID=
                     'title' => 'Bank Transfer Payment',
                     'allowspecific' => '0',
                     'group' => 'offline',
+                    'specificcountry' => null,
+                    'instructions' => null,
+                    'min_order_total' => null,
+                    'max_order_total' => null,
+                    'sort_order' => null,
                 ],
                 'cashondelivery' => [
                     'active' => '0',
@@ -1390,6 +1418,11 @@ Disallow: /*SID=
                     'title' => 'Cash On Delivery',
                     'allowspecific' => '0',
                     'group' => 'offline',
+                    'specificcountry' => null,
+                    'instructions' => null,
+                    'min_order_total' => null,
+                    'max_order_total' => null,
+                    'sort_order' => null,
                 ],
                 'vault' => [
                     'debug' => '1',
@@ -1414,6 +1447,12 @@ Disallow: /*SID=
                     'smart_buttons_supported_locales' => 'en_AD,fr_AD,es_AD,zh_AD,en_AE,fr_AE,es_AE,zh_AE,ar_AE,en_AG,fr_AG,es_AG,zh_AG,en_AI,fr_AI,es_AI,zh_AI,en_AL,en_AM,fr_AM,es_AM,zh_AM,en_AN,fr_AN,es_AN,zh_AN,en_AO,fr_AO,es_AO,zh_AO,es_AR,en_AR, de_AT,en_AT,en_AU,en_AW,fr_AW,es_AW,zh_AW,en_AZ,fr_AZ,es_AZ,zh_AZ,en_BA,en_BB,fr_BB,es_BB,zh_BB,en_BE,nl_BE,fr_BE,fr_BF,en_BF,es_BF,zh_BF,en_BG,ar_BH,en_BH,fr_BH,es_BH,zh_BH,fr_BI,en_BI,es_BI,zh_BI,fr_BJ,en_BJ,es_BJ,zh_BJ,en_BM,fr_BM,es_BM,zh_BM,en_BN,es_BO,en_BO,fr_BO,zh_BO,pt_BR,en_BR,en_BS,fr_BS,es_BS,zh_BS,en_BT,en_BW,fr_BW,es_BW,zh_BW,en_BY,en_BZ,es_BZ,fr_BZ,zh_BZ,en_CA,fr_CA,fr_CD,en_CD,es_CD,zh_CD,en_CG,fr_CG,es_CG,zh_CG,de_CH,fr_CH,en_CH,fr_CI,en_CI,en_CK,fr_CK,es_CK,zh_CK,es_CL,en_CL,fr_CL,zh_CL,fr_CM,en_CM,zh_CN,es_CO,en_CO,fr_CO,zh_CO,es_CR,en_CR,fr_CR,zh_CR,en_CV,fr_CV,es_CV,zh_CV,en_CY,cs_CZ,en_CZ,fr_CZ,es_CZ,zh_CZ,de_DE,en_DE,fr_DJ,en_DJ,es_DJ,zh_DJ,da_DK,en_DK,en_DM,fr_DM,es_DM,zh_DM,es_DO,en_DO,fr_DO,zh_DO,ar_DZ,en_DZ,fr_DZ,es_DZ,zh_DZ,es_EC,en_EC,fr_EC,zh_EC,en_EE,ru_EE,fr_EE,es_EE,zh_EE,ar_EG,en_EG,fr_EG,es_EG,zh_EG,en_ER,fr_ER,es_ER,zh_ER,es_ES,en_ES,en_ET,fr_ET,es_ET,zh_ET,fi_FI,en_FI,fr_FI,es_FI,zh_FI,en_FJ,fr_FJ,es_FJ,zh_FJ,en_FK,fr_FK,es_FK,zh_FK,en_FM,da_FO,en_FO,fr_FO,es_FO,zh_FO,fr_FR,en_FR,fr_GA,en_GA,es_GA,zh_GA,en_GB,en_GD,fr_GD,es_GD,zh_GD,en_GE,fr_GE,es_GE,zh_GE,en_GF,fr_GF,es_GF,zh_GF,en_GI,fr_GI,es_GI,zh_GI,da_GL,en_GL,fr_GL,es_GL,zh_GL,en_GM,fr_GM,es_GM,zh_GM,fr_GN,en_GN,es_GN,zh_GN,en_GP,fr_GP,es_GP,zh_GP,el_GR,en_GR,fr_GR,es_GR,zh_GR,es_GT,en_GT,fr_GT,zh_GT,en_GW,fr_GW,es_GW,zh_GW,en_GY,fr_GY,es_GY,zh_GY,en_HK,zh_HK,es_HN,en_HN,fr_HN,zh_HN,en_HR,hu_HU,en_HU,fr_HU,es_HU,zh_HU,id_ID,en_ID,en_IE,fr_IE,es_IE,zh_IE,he_IL,en_IL,en_IN,en_IS,it_IT,en_IT,en_JM,es_JM,fr_JM,zh_JM,ar_JO,en_JO,fr_JO,es_JO,zh_JO,ja_JP,en_JP,en_KE,fr_KE,es_KE,zh_KE,en_KG,fr_KG,es_KG,zh_KG,en_KH,en_KI,fr_KI,es_KI,zh_KI,fr_KM,en_KM,es_KM,zh_KM,en_KN,fr_KN,es_KN,zh_KN,ko_KR,en_KR,ar_KW,en_KW,fr_KW,es_KW,zh_KW,en_KY,fr_KY,es_KY,zh_KY,en_KZ,fr_KZ,es_KZ,zh_KZ,en_LA,en_LC,fr_LC,es_LC,zh_LC,en_LI,fr_LI,es_LI,zh_LI,en_LK,en_LS,fr_LS,es_LS,zh_LS,en_LT,ru_LT,fr_LT,es_LT,zh_LT,en_LU,de_LU,fr_LU,es_LU,zh_LU,en_LV,ru_LV,fr_LV,es_LV,zh_LV,ar_MA,en_MA,fr_MA,es_MA,zh_MA,fr_MC,en_MC,en_MD,en_ME,en_MG,fr_MG,es_MG,zh_MG,en_MH,fr_MH,es_MH,zh_MH,en_MK,fr_ML,en_ML,es_ML,zh_ML,en_MN,en_MQ,fr_MQ,es_MQ,zh_MQ,en_MR,fr_MR,es_MR,zh_MR,en_MS,fr_MS,es_MS,zh_MS,en_MT,en_MU,fr_MU,es_MU,zh_MU,en_MV,en_MW,fr_MW,es_MW,zh_MW,es_MX,en_MX,en_MY,en_MZ,fr_MZ,es_MZ,zh_MZ,en_NA,fr_NA,es_NA,zh_NA,en_NC,fr_NC,es_NC,zh_NC,fr_NE,en_NE,es_NE,zh_NE,en_NF,fr_NF,es_NF,zh_NF,en_NG,es_NI,en_NI,fr_NI,zh_NI,nl_NL,en_NL,no_NO,en_NO,en_NP,en_NR,fr_NR,es_NR,zh_NR,en_NU,fr_NU,es_NU,zh_NU,en_NZ,fr_NZ,es_NZ,zh_NZ,ar_OM,en_OM,fr_OM,es_OM,zh_OM,es_PA,en_PA,fr_PA,zh_PA,es_PE,en_PE,fr_PE,zh_PE,en_PF,fr_PF,es_PF,zh_PF,en_PG,fr_PG,es_PG,zh_PG,en_PH,pl_PL,en_PL,en_PM,fr_PM,es_PM,zh_PM,en_PN,fr_PN,es_PN,zh_PN,pt_PT,en_PT,en_PW,fr_PW,es_PW,zh_PW,es_PY,en_PY,en_QA,fr_QA,es_QA,zh_QA,ar_QA,en_RE,fr_RE,es_RE,zh_RE,en_RO,fr_RO,es_RO,zh_RO,en_RS,fr_RS,es_RS,zh_RS,ru_RU,en_RU,fr_RW,en_RW,es_RW,zh_RW,ar_SA,en_SA,fr_SA,es_SA,zh_SA,en_SB,fr_SB,es_SB,zh_SB,fr_SC,en_SC,es_SC,zh_SC,sv_SE,en_SE,en_SG,en_SH,fr_SH,es_SH,zh_SH,en_SI,fr_SI,es_SI,zh_SI,en_SJ,fr_SJ,es_SJ,zh_SJ,sk_SK,en_SK,fr_SK,es_SK,zh_SK,en_SL,fr_SL,es_SL,zh_SL,en_SM,fr_SM,es_SM,zh_SM,fr_SN,en_SN,es_SN,zh_SN,en_SO,fr_SO,es_SO,zh_SO,en_SR,fr_SR,es_SR,zh_SR,en_ST,fr_ST,es_ST,zh_ST,es_SV,en_SV,fr_SV,zh_SV,en_SZ,fr_SZ,es_SZ,zh_SZ,en_TC,fr_TC,es_TC,zh_TC,fr_TD,en_TD,es_TD,zh_TD,fr_TG,en_TG,es_TG,zh_TG,th_TH,en_TH,en_TJ,fr_TJ,es_TJ,zh_TJ,en_TM,fr_TM,es_TM,zh_TM,ar_TN,en_TN,fr_TN,es_TN,zh_TN,en_TO,tr_TR,en_TR,en_TT,fr_TT,es_TT,zh_TT,en_TV,fr_TV,es_TV,zh_TV,zh_TW,en_TW,en_TZ,fr_TZ,es_TZ,zh_TZ,en_UA,ru_UA,fr_UA,es_UA,zh_UA,en_UG,fr_UG,es_UG,zh_UG,en_US,fr_US,es_US,zh_US,es_UY,en_UY,fr_UY,zh_UY,en_VA,fr_VA,es_VA,zh_VA,en_VC,fr_VC,es_VC,zh_VC,es_VE,en_VE,fr_VE,zh_VE,en_VG,fr_VG,es_VG,zh_VG,en_VN,en_VU,fr_VU,es_VU,zh_VU,en_WF,fr_WF,es_WF,zh_WF,en_WS,ar_YE,en_YE,fr_YE,es_YE,zh_YE,en_YT,fr_YT,es_YT,zh_YT,en_ZA,fr_ZA,es_ZA,zh_ZA,en_ZM,fr_ZM,es_ZM,zh_ZM,en_ZW',
                     'client_id' => 'ATDZ9_ECFh-fudesZo4kz3fGTSO1pzuWCS4IjZMq4JKdRK7hQR3Rxyafx39H2fP363WtmlQNYXjUiAae',
                     'sandbox_client_id' => 'AUZfbDQ_4m8ibp82qV9pi9wxGkGrdGILVYWbWaTWreW9mmTm6LjQorLZxpP7kjymXc7flRnepHBFSQWp',
+                    'active' => '0',
+                    'in_context' => '0',
+                    'sort_order' => null,
+                    'allowspecific' => '0',
+                    'transfer_shipping_options' => '0',
+                    'require_billing_address' => '0',
                 ],
                 'paypal_express_bml' => [
                     'model' => 'Magento\\Paypal\\Model\\Bml',
@@ -1478,6 +1517,10 @@ Disallow: /*SID=
                     'title' => 'PayPal Billing Agreement',
                     'group' => 'paypal',
                     'verify_peer' => '1',
+                    'sort_order' => null,
+                    'payment_action' => 'Authorization',
+                    'allowspecific' => '0',
+                    'line_items_enabled' => '0',
                 ],
                 'payflow_link' => [
                     'model' => 'Magento\\Paypal\\Model\\Payflowlink',
@@ -1552,6 +1595,11 @@ Disallow: /*SID=
                     'hard_decline_code' => '4273',
                     'soft_decline_code' => '7638',
                     'sca_regions' => 'de,uk',
+                    'payment_region' => null,
+                    'button_display_language' => null,
+                    'multicurrency' => '0',
+                    'storename' => null,
+                    'allowed_ips' => null,
                 ],
                 'amazonlogin' => [
                     'active' => '0',
@@ -1588,6 +1636,8 @@ Disallow: /*SID=
                     'can_initialize' => '0',
                     'can_review_payment' => '0',
                     'can_use_for_multishipping' => '0',
+                    'enable_b2b' => '0',
+                    'sort_order' => null,
                 ],
                 'braintree' => [
                     'model' => 'BraintreeFacade',
@@ -1622,6 +1672,20 @@ Disallow: /*SID=
                     'paymentInfoKeys' => 'cc_type,cc_number,avsPostalCodeResponseCode,avsStreetAddressResponseCode,cvvResponseCode,processorAuthorizationCode,processorResponseCode,processorResponseText,liabilityShifted,liabilityShiftPossible,riskDataId,riskDataDecision,transactionSource',
                     'kount_allowed_ips' => '208.75.112.0/22,209.81.12.0/24',
                     'group' => 'braintree_group',
+                    'sandbox_merchant_id' => null,
+                    'fraudprotection' => '0',
+                    'fraudprotection_threshold' => null,
+                    'debug' => '0',
+                    'sort_order' => null,
+                    'specificcountry' => null,
+                    'countrycreditcard' => '[]',
+                    'verify_3dsecure' => '0',
+                    'threshold_amount' => null,
+                    'verify_all_countries' => '0',
+                    'verify_specific_countries' => null,
+                    'descriptor_name' => null,
+                    'descriptor_phone' => null,
+                    'descriptor_url' => null,
                 ],
                 'braintree_paypal' => [
                     'model' => 'BraintreePayPalFacade',
@@ -1663,6 +1727,9 @@ Disallow: /*SID=
                     'button_size_productpage' => '2',
                     'button_shape_productpage' => '1',
                     'group' => 'braintree_group',
+                    'specificcountry' => null,
+                    'debug' => '0',
+                    'disabled_funding_productpage' => null,
                 ],
                 'braintree_paypal_credit' => [
                     'model' => 'BraintreePayPalCreditFacade',
@@ -1678,12 +1745,14 @@ Disallow: /*SID=
                     'model' => 'BraintreeCreditCardVaultFacade',
                     'title' => 'Stored Cards',
                     'group' => 'braintree_group',
+                    'active' => '0',
                 ],
                 'braintree_paypal_vault' => [
                     'model' => 'BraintreePayPalVaultFacade',
                     'title' => 'Stored Accounts (PayPal)',
                     'can_use_internal' => '1',
                     'group' => 'braintree_group',
+                    'active' => '0',
                 ],
                 'braintree_applepay' => [
                     'model' => 'BraintreeApplePay',
@@ -1792,6 +1861,76 @@ Disallow: /*SID=
                     'title' => 'Local Payments',
                     'allowed_methods' => 'bancontact,eps,giropay,ideal,sofort,mybank,p24,sepa',
                     'group' => 'braintree_group',
+                ],
+                'rm_pagseguro_cc' => [
+                    'active' => '1',
+                    'payment_action' => 'order',
+                    'model' => 'RicardoMartins\\PagSeguro\\Model\\Method\\Cc',
+                    'title' => 'Cartão de Crédito via PagSeguro UOL',
+                    'order_status' => 'pending',
+                    'enable_cc_images' => '1',
+                    'flag' => '42x20',
+                    'send_neworder_email' => '0',
+                    'group_restriction' => '0',
+                    'info_brl' => '1',
+                    'show_total' => '0',
+                    'force_installments_selection' => '0',
+                    'owner_dob_attribute' => null,
+                    'sort_order' => '1',
+                    'show_installments_product_page' => '0',
+                ],
+                'rm_pagseguro' => [
+                    'title' => 'PagSeguro UOL',
+                    'model' => 'RicardoMartins\\PagSeguro\\Model\\Payment',
+                    'debug' => '1',
+                    'address_street_attribute' => 'street_1',
+                    'address_number_attribute' => 'street_2',
+                    'address_complement_attribute' => 'street_3',
+                    'address_neighborhood_attribute' => 'city',
+                    'merchant_email' => 'danilo.hirata@webjump.com.br',
+                    'token' => 'f1dcb870-1205-4340-9bd4-5a950949b6e464d1fc994624bcb7bd779276ed068ca08985-e859-4ec4-a0bf-bc733c535d98',
+                    'key' => 'PUB17C1BFD34C5746F5A6198A09E1D3F589',
+                    'sandbox' => '1',
+                    'sandbox_merchant_email' => 'v33751956901382754663@sandbox.pagseguro.com.br',
+                    'sandbox_key' => 'PUB8FE5A05F22E245F8B036BA54A5C459EE',
+                    'send_invoice_email' => '0',
+                    'customer_cpf_attribute' => null,
+                ],
+                'rm_pagseguro_boleto' => [
+                    'active' => '1',
+                    'payment_action' => 'order',
+                    'title' => 'Boleto - via PagSeguro UOL',
+                    'order_status' => 'holded',
+                    'sort_order' => '2',
+                    'model' => 'RicardoMartins\\PagSeguro\\Model\\Method\\Boleto',
+                    'allowspecific' => '0',
+                ],
+                'rm_pagseguro_tef' => [
+                    'active' => '1',
+                    'payment_action' => 'order',
+                    'title' => 'PagSeguro - TEF - Ricardo Martins',
+                    'order_status' => 'holded',
+                    'sort_order' => '3',
+                    'model' => 'RicardoMartins\\PagSeguro\\Model\\Method\\Tef',
+                    'allowspecific' => '0',
+                    'specificcountry' => null,
+                ],
+                'rm_pagseguro_pagar_no_pagseguro' => [
+                    'active' => '1',
+                    'title' => 'PagSeguro - Pagar no PagSeguro',
+                    'redirectURL' => 'checkout/onepage/success',
+                    'order_status' => 'pending',
+                    'description' => 'Você será redirecionado para o PagSeguro onde poderá escolher a forma de pagamento desejada.',
+                    'payment_action' => 'order',
+                    'sort_order' => '4',
+                    'enable_recovery' => '1',
+                    'disable_frontend' => '0',
+                    'accepted_groups' => 'CREDIT_CARD,BOLETO',
+                    'model' => 'RicardoMartins\\PagSeguro\\Model\\Method\\Redirect',
+                    'redirect_to_success_page' => '0',
+                ],
+                'wps_express' => [
+                    'active' => '0',
                 ],
             ],
             'sales' => [
@@ -1948,6 +2087,13 @@ Disallow: /*SID=
                     'identity' => 'general',
                     'receiver' => 'general',
                     'template' => 'checkout_payment_failed_template',
+                ],
+                'klarna_kp_design' => [
+                    'color_details' => null,
+                    'color_border' => null,
+                    'color_border_selected' => null,
+                    'color_text' => null,
+                    'color_radius_border' => null,
                 ],
             ],
             'captcha' => [
@@ -2674,9 +2820,17 @@ Disallow: /*SID=
                     'mini_cart_page_button_size' => 'responsive',
                     'mini_cart_page_button_shape' => 'rect',
                     'mini_cart_page_button_color' => 'gold',
+                    'page_style' => null,
+                    'paypal_hdrimg' => null,
+                    'paypal_hdrbackcolor' => null,
+                    'paypal_hdrbordercolor' => null,
+                    'paypal_payflowcolor' => null,
+                    'disable_funding_options' => null,
                 ],
                 'wpp' => [
                     'button_flavor' => 'dynamic',
+                    'api_authentication' => '0',
+                    'use_proxy' => '0',
                 ],
                 'wpuk' => [
                     'user' => null,
@@ -2685,6 +2839,7 @@ Disallow: /*SID=
                 'fetch_reports' => [
                     'schedule' => '1',
                     'time' => '00,00,00',
+                    'active' => '0',
                 ],
             ],
             'persistent' => [
