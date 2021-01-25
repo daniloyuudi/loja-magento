@@ -84,7 +84,7 @@ class CreateAttribute implements DataPatchInterface, PatchRevertableInterface
                 'required' => false,
                 'backend' => '',
                 'sort_order' => '82',
-                'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+                'global' => ScopedAttributeInterface::SCOPE_WEBSITE,
                 'default' => null,
                 'visible' => true,
                 'user_defined' => true,
@@ -101,20 +101,22 @@ class CreateAttribute implements DataPatchInterface, PatchRevertableInterface
                 'is_filterable_in_grid' => false,
                 'attribute_code'  => 'dye',
                 'option' => [
-                    'values' => ["Acrylic"],
-                    ["Enamel"],
-                    ["Epoxy"],
-                    ["Polyurethane"],
-                    ["Varnish"],
-                    ["Oil"],
-                    ["Fabric"]
+                    'value' => [
+                        'option_1' => ['Acrylic'],
+                        'option_2' => ['Enamel'],
+                        'option_3' => ['Epoxy'],
+                        'option_4' => ['Polyurethane'],
+                        'option_5' => ['Varnish'],
+                        'option_6' => ['Oil'],
+                        'option_7' => ['Fabric']
+                    ]
                 ]
             ]
         );
 
         $eavSetup->addAttribute(
             Product::ENTITY,
-            'meterial',
+            'material',
             [
                 'type' => 'text',
                 'label' => 'Material',
@@ -124,7 +126,7 @@ class CreateAttribute implements DataPatchInterface, PatchRevertableInterface
                 'required' => false,
                 'backend' => '',
                 'sort_order' => '83',
-                'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+                'global' => ScopedAttributeInterface::SCOPE_WEBSITE,
                 'default' => null,
                 'visible' => true,
                 'user_defined' => true,
@@ -141,12 +143,14 @@ class CreateAttribute implements DataPatchInterface, PatchRevertableInterface
                 'is_filterable_in_grid' => false,
                 'attribute_code'  => 'material',
                 'option' => [
-                    'values' => ["Plaster"],
-                    ["Synthetic resin"],
-                    ["Plastic"],
-                    ["Rubber"],
-                    ["Cotton"],
-                    ["Wood"]
+                    'value' => [
+                        'option_1' => ['Plaster'],
+                        'option_2' => ['Synthetic resin'],
+                        'option_3' => ['Plastic'],
+                        'option_4' => ['Rubber'],
+                        'option_5' => ['Cotton'],
+                        'option_6' => ['Wood']
+                    ]
                 ]
             ]
         );
@@ -156,6 +160,9 @@ class CreateAttribute implements DataPatchInterface, PatchRevertableInterface
 
     public function revert()
     {
-        // TODO: Implement revert() method.
+        $this->moduleDataSetup->getConnection()->startSetup();
+        $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
+        $eavSetup->removeAttribute(Product::ENTITY, self::ATTRIBUTE_CODE);
+        $this->moduleDataSetup->getConnection()->endSetup();
     }
 }

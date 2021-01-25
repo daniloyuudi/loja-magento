@@ -13,12 +13,12 @@
     "version": "2.4.1",
     "require": {
         "avada/module-proofo": "^1.0",
-        "buzzmage/centraldofrete-magento": "^1.0",
-        "imaginationmedia/correios": "^1.2",
+        "frenet/frenet-magento2": "^2.2",
         "magento/composer-root-update-plugin": "~1.0",
         "magento/product-community-edition": "2.4.1",
         "magento2translations/language_pt_br": "dev-master",
-        "mageplaza/magento-2-portuguese-language-pack": "dev-master"
+        "mageplaza/magento-2-portuguese-language-pack": "dev-master",
+        "ricardomartins/pagseguro": "dev-master"
     },
     "autoload": {
         "exclude-from-classmap": [

@@ -402,10 +402,15 @@ return [
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
         'Avada_Proofo' => 1,
+        'Buzz_CentralDoFrete' => 1,
         'Clofem_Attributes' => 1,
         'Clofem_Banner' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Dotdigitalgroup_Chat' => 1,
+<<<<<<< HEAD
+=======
+        'Frenet_Shipping' => 1,
+>>>>>>> 47f72018ad7693dc8d5b309adb5f073fffef751b
         'Klarna_Core' => 1,
         'Klarna_Ordermanagement' => 1,
         'Klarna_Kp' => 1,
@@ -416,6 +421,7 @@ return [
         'MundoGeek_Banner' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
+        'RicardoMartins_PagSeguro' => 1,
         'Temando_ShippingRemover' => 1,
         'Vertex_Tax' => 1,
         'Vertex_AddressValidationApi' => 1,
