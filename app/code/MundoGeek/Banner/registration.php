@@ -1,6 +1,6 @@
 <?php
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Webjump_Clofem',
+    'MundoGeek_Banner',
     __DIR__
 );

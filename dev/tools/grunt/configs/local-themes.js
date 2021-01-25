@@ -41,6 +41,26 @@ module.exports = {
         ],
         dsl: 'less'
     },
+    clofem: {
+        area: 'frontend',
+        name: 'Training/clofem',
+        locale: 'pt_BR',
+        files: [
+            'css/styles-m',
+            'css/styles-l'
+        ],
+        dsl: 'less'
+    },
+    storemundogeek: {
+        area: 'frontend',
+        name: 'Training/storemundogeek',
+        locale: 'pt_BR',
+        files: [
+            'css/styles-m',
+            'css/styles-l'
+        ],
+        dsl: 'less'
+    },
     backend: {
         area: 'adminhtml',
         name: 'Magento/backend',
