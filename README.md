@@ -29,3 +29,7 @@ O conteúdo é composto por 2 websites, sendo que um deles possui duas storeview
 - Danilo Yuudi
 - Guilherme Puleto
 - Marcella Nery
+
+## Como instalar
+
+https://github.com/mahnery21/Como-Instalar-Loja-Magento-
